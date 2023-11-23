@@ -8,7 +8,7 @@ import About from './pages/About';
 
 function App() {
   return (
-    <BrowserRouter className="minh-h-screen">
+    <BrowserRouter className="min-h-screen">
       <Navbar />
       <Routes>
         <Route exact path='/' element={<Home/>}/>
