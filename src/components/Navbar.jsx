@@ -7,7 +7,9 @@ const Navbar = () => {
     //
   return (
     <section className='flex justify-center p-3 items-center'>
-        <h1 className='mr-0 pr-2 items-center text-2xl font-semibold'>Question Form</h1>
+        <NavLink >
+          <h1 className='mr-0 pr-2 items-center text-2xl font-semibold'>Question Form</h1>
+        </NavLink>
         <nav className='flex justify-end items-center gap-3 ml-4'>
           <MdOutlineLightMode />
           <BsFillMoonStarsFill />
