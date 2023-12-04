@@ -1,8 +1,14 @@
 import React from 'react'
 
-const Home = () => {
+const Home = ({questions}) => {
+  questions = {
+    questionName: 'Is React a library'
+  }
   return (
-    <div>Home</div>
+    <div>
+      <h3>{questions.questionName}</h3>
+      <p>{questions.answers}</p>
+    </div>
   )
 }
 
