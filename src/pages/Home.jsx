@@ -8,9 +8,9 @@ const Home = ({questions}) => {
   return (
     <div>
       <h3>{questions.questionName}</h3>
-      <input type='button'>
-        {/* {questions.answer} */}
-      </input>
+      <p type='button'>
+        {questions.answer}
+      </p>
     </div>
   )
 }
