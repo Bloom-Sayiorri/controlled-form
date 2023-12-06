@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Questions = ({questions}) => {
+const Questions = () => {
   return (
     <div>
-        {questions}
+        
     </div>
   )
 }
