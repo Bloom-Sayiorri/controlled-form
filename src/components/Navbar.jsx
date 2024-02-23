@@ -1,35 +1,17 @@
-import React, { useState } from 'react'
-import { BsFillMoonStarsFill } from "react-icons/bs";
-import { MdOutlineLightMode } from "react-icons/md";
-import { NavLink } from 'react-router-dom';
+import React from 'react'
+import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
 
-const Navbar = () => {
-  const [dark, setDark] = useState(false)
 
-    const lightMode = () => {
-      if (dark === true) {
-        setDark(true);
-      }
-      return;
-    }
-
-    const darkMode = () => {
-      if (!dark){
-        setDark(false);
-      }
-      return;
-    }
-
+const Navbar = ({ toggleMode, dark}) => {
   return (
-    <section className='flex justify-between p-3 items-center'>
-        <NavLink to='/'>
-          <h1 className='items-center text-2xl font-semibold'>Questions</h1>
-        </NavLink>
-        <nav className='flex justify-end items-center gap-3 p-2'>
-          <button onClick={lightMode}><MdOutlineLightMode /></button>
-          <button onClick={darkMode}><BsFillMoonStarsFill /></button>
-        </nav>
-    </section>
+    <div>
+      <h1 className='text-3xl m-4'>Questions</h1>
+      <nav className={dark ? 'bg-slate-800 text-white' : 'bg-white text-black'}>
+        <button onClick={toggleMode}>
+          {dark ? <MdOutlineLightMode/> : <MdOutlineDarkMode/>}
+        </button>
+      </nav>
+    </div>
   )
 }
 

@@ -7,11 +7,11 @@ const Home = ({questions}) => {
     correctAnswer: 'Yes'
   }
 
-  const rigthAnswer = () => {
-    if (answers.length > 0){
-      return
-    }
-  }
+  // const rigthAnswer = () => {
+  //   if (answers.length > 0){
+  //     return
+  //   }
+  // }
   return (
     <div>
       <ul className="">
