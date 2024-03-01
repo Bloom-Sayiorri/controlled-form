@@ -7,9 +7,9 @@ const Navbar = ({ toggleMode, dark}) => {
     <div>
       <h1 className='text-3xl m-4'>Questions</h1>
       <nav className={dark ? 'bg-slate-800 text-white' : 'bg-white text-black'}>
-        <button onClick={toggleMode}>
+        {/* <button onClick={toggleMode}>
           {dark ? <MdOutlineLightMode/> : <MdOutlineDarkMode/>}
-        </button>
+        </button> */}
       </nav>
     </div>
   )
