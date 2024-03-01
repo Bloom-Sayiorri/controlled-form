@@ -14,5 +14,5 @@ const Navbar = ({ toggleMode, dark}) => {
     </div>
   )
 }
-
+ 
 export default Navbar
