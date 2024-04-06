@@ -2,18 +2,13 @@ import React, { useEffect, useState } from 'react'
 import questions from '../questions'
 
 const Questions = () => {
-  const [questionData, setQuestionData] = useState({
-    choices: ''
-  })
-  const url = "https://opentdb.com/api.php?amount=30&difficulty=medium&type=multiple"
+  const url = process.env.API_URL
 
   // const displayed = useEffect(() => {
   //   fetch(url)
   //   .then(response => response.json())
   //   .then(data => console.log(data))
   // }, [question])
-
-
 
   const displayedQuestion = displayed.map((q) => {
     return(
