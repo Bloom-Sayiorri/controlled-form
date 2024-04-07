@@ -1,5 +1,5 @@
 import React from 'react'
-// import Question from './Question.jsx'
+import QuestionList from './QuestionList.jsx'
 import questions from '../questions'
 
 const Home = () => {
@@ -23,7 +23,8 @@ const Home = () => {
 
   return (
     // <Question />
-    <>{display}</>
+    // <>{display}</>
+    <QuestionList />
   )
 }
 
