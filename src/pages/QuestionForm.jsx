@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 
-const QuestionForm = () => {
-  const [ formData, setFormData ] = useState({
-    id: 1,
-    question: '',
-    correctAnswer: [
-      { answer1: '' },
-      { answer2: '' },
-      { answer3: '' },
-      { answer4: '' }
-    ]
-  })
+const QuestionForm = ({ getNextId }) => {
+const [ formData, setFormData ] = useState({
+  id: getNextId(),
+  question: '',
+  correctAnswer: {
+    answer1: '',
+    answer2: '',
+    answer3: '',
+    answer4: '',
+  }
+})
 
   const handleChange = (e) => {
     const name = e.target.name
@@ -20,9 +20,40 @@ const QuestionForm = () => {
         [name]: value
     }) 
   }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    const itemData = {
+      id: getNextId(),
+      question: formData.question,
+      correctAnswer: formData.correctAnswer,
+      answer1: formData.correctAnswer.answer1,
+      answer2: formData.correctAnswer.answer2,
+      answer3: formData.correctAnswer.answer3,
+      answer4: formData.correctAnswer.answer4,
+    }
+    fetch('http://localhost:8001/questions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(itemData)
+    })
+    .then(r => {
+      if(r.ok) {
+        return r.json();
+      } else {
+        throw new Error('Failed to create a new question')
+      }})
+    .then(data => {setFormData(prevState => ({
+        ...prevState,
+        ...data
+      }))}
+    )
+    .catch(err => {
+      console.log("Error creating question", err);
+    });
   };
 
   return (

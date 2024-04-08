@@ -17,12 +17,19 @@ function App() {
     console.log('After dark mode, dark: ', !dark);
   }
 
+  const getNextId = ((id) => () => ++id)(1);
+
   return (
     <BrowserRouter className="min-h-screen">
       <Navbar dark={dark} setDark={setDark} toggleMode={toggleMode}/>
       <Routes>
         <Route exact path='/' element={<Home/>}/>
-        <Route exact path='/question-form' element={<QuestionForm/>}/>
+        <Route
+          path='/question-form'
+          render={(props) => (
+            <QuestionForm {...props} getNextId={getNextId}/>
+          )}
+        />
       </Routes>
       <Footer />
     </BrowserRouter>
