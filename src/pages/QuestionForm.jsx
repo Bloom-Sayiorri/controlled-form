@@ -35,11 +35,43 @@ const QuestionForm = () => {
         value={formData.question}
         onChange={handleChange}
       />
-      <label htmlFor='answer'>Answer</label>
+      <label htmlFor='answer'>Answers</label>
       <input 
         type='checkbox'
-        id='answer'
-        name='answer'
+        id='correctAnswer'
+        name='correctAnswer'
+        value={formData.answer}
+        onChange={handleChange}
+      />
+      <label htmlFor='answer'>Answer1</label>
+      <input 
+        type='checkbox'
+        id='correctAnswer'
+        name='correctAnswer'
+        value={formData.answer}
+        onChange={handleChange}
+      />
+      <label htmlFor='answer'>Answer2</label>
+      <input 
+        type='checkbox'
+        id='correctAnswer'
+        name='correctAnswer'
+        value={formData.answer}
+        onChange={handleChange}
+      />
+      <label htmlFor='answer'>Answer3</label>
+      <input 
+        type='checkbox'
+        id='correctAnswer'
+        name='correctAnswer'
+        value={formData.answer}
+        onChange={handleChange}
+      />
+      <label htmlFor='answer'>Answer4</label>
+      <input 
+        type='checkbox'
+        id='correctAnswer'
+        name='correctAnswer'
         value={formData.answer}
         onChange={handleChange}
       />
