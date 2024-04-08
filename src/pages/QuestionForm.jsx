@@ -13,8 +13,8 @@ const QuestionForm = () => {
   })
 
   const handleChange = (e) => {
-    const name = e.taget.name
-    const value = e.target.type === 'checked' ? e.target.checked : e.target.value
+    const name = e.target.name
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
     setFormData({
         ...formData,
         [name]: value
