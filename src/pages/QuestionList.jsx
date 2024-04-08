@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 // import questions from '../questions'
 
 const QuestionList = () => {
-  const [questionData, setQuestionData] = useState([])
+  // const [questionData, setQuestionData] = useState([])
   // const apiUrl = process.env.API_URL
   // let displayed = []
-  useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=30&difficulty=medium&type=multiple")
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-}, [questionData])
+//   useEffect(() => {
+//     fetch("https://opentdb.com/api.php?amount=30&difficulty=medium&type=multiple")
+//     .then((response) => response.json())
+//     .then((data) => console.log(data))
+// }, [questionData])
 
   // console.log(displayed.push(display))
 

@@ -18,9 +18,8 @@ const QuestionForm = () => {
     setFormData({
         ...formData,
         [name]: value
-    })
+    }) 
   }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     
