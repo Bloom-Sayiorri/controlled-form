@@ -2,12 +2,8 @@ const questions = [
     {
         id: 1,
         prompt: "React was introduced in which year?",
-        answers: [
-            { text: "2000", isCorrect: false },
-            { text: "2010", isCorrect: false },
-            { text: "2013", isCorrect: true },
-            { text: "2020", isCorrect: false },
-        ]
+        answers: [2000, 2013, 2020, 2016],
+        correctIndex: 2,
     }
 ]
 
