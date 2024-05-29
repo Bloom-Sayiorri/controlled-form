@@ -2,9 +2,72 @@
   "questions": [
     {
       "id": 1,
-      "prompt": "React was introduced in which year?",
-      "answers": [2000, 2013, 2020, 2016],
+      "prompt": "What is the primary purpose of React?",
+      "answers": [
+        "To manage databases",
+        "To handle server-side routing",
+        "To build user interfaces",
+        "To create backend services"
+      ],
       "correctIndex": 2
+    },
+    {
+      "id": 2,
+      "prompt": "Which of the following is used to pass data to components in React?",
+      "answers": [
+        "state",
+        "props",
+        "methods",
+        "services"
+      ],
+      "correctIndex": 1,
+      "data": {
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": 3,
+      "prompt": "What is a key advantage of using JSX in React?",
+      "answers": [
+        "It allows JavaScript to be written in XML format",
+        "It separates HTML and JavaScript code",
+        "It helps in defining components more succinctly",
+        "It improves the performance of the application"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 4,
+      "prompt": "Which hook is used to manage state in a functional component?",
+      "answers": [
+        "useState",
+        "useEffect",
+        "useReducer",
+        "useContext"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 5,
+      "prompt": "How do you create a component in React?",
+      "answers": [
+        "Using a function or a class",
+        "Using HTML directly",
+        "Using a service",
+        "Using a method"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "prompt": "Which company manages React?",
+      "answers": [
+        "Facebook",
+        "Snapchat",
+        "Microsoft",
+        "Reddit"
+      ],
+      "correctIndex": null,
+      "id": 6
     }
   ]
 }

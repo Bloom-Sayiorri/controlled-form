@@ -1,16 +1,23 @@
 import React, { useState } from 'react'
 
-const QuestionForm = ({ getNextId }) => {
-const [ formData, setFormData ] = useState({
-  id: getNextId(),
-  question: '',
-  correctAnswer: {
-    answer1: '',
-    answer2: '',
-    answer3: '',
-    answer4: '',
-  }
-})
+const QuestionForm = ({ onAddQuestion }) => {
+  const [ formData, setFormData ] = useState({
+    // prompt: '',
+    // answers: {
+    //   answer1: '',
+    //   answer2: '',
+    //   answer3: '',
+    //   answer4: '',
+    // },
+    // correctIndex: 0,
+    prompt: "",
+    answer1: "",
+    answer2: "",
+    answer3: "",
+    answer4: "",
+    selectedAnswer: "",
+    correctIndex: 0,
+  });
 
   const handleChange = (e) => {
     const name = e.target.name
@@ -23,16 +30,25 @@ const [ formData, setFormData ] = useState({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // const itemData = {
+    //   question: formData.question,
+    //   answer1: formData.correctAnswer.answer1,
+    //   answer2: formData.correctAnswer.answer2,
+    //   answer3: formData.correctAnswer.answer3,
+    //   answer4: formData.correctAnswer.answer4,
+    //   correctIndex: formData.correctIndex,
+    // }
     const itemData = {
-      id: getNextId(),
-      question: formData.question,
-      correctAnswer: formData.correctAnswer,
-      answer1: formData.correctAnswer.answer1,
-      answer2: formData.correctAnswer.answer2,
-      answer3: formData.correctAnswer.answer3,
-      answer4: formData.correctAnswer.answer4,
+      prompt: formData.prompt,
+      answers: [
+        formData.answer1,
+        formData.answer2,
+        formData.answer3,
+        formData.answer4,
+      ],
+      correctIndex: parseInt(formData.correctIndex, 10)
     }
-    fetch('http://localhost:8001/questions', {
+    fetch('http://localhost:3001/questions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,66 +62,71 @@ const [ formData, setFormData ] = useState({
       } else {
         throw new Error('Failed to create a new question')
       }})
-    .then(data => {setFormData(prevState => ({
-        ...prevState,
-        ...data
-      }))}
-    )
+      .then((question) => onAddQuestion(question))
+    // .then(data => {setFormData(prevState => ({
+    //   ...prevState,
+    //     ...data
+    //   }))}
+    // )
     .catch(err => {
       console.log("Error creating question", err);
-    });
+    })
   };
 
   return (
-    <form className='' onSubmit={handleSubmit}>
-      <label htmlFor='question'>Question</label>
-      <input 
-        type='text'
-        id='question'
-        name='question'
-        value={formData.question}
-        onChange={handleChange}
-      />
-      <label htmlFor='answer'>Answers</label>
-      <input 
-        type='checkbox'
-        id='correctAnswer'
-        name='correctAnswer'
-        value={formData.answer}
-        onChange={handleChange}
-      />
-      <label htmlFor='answer'>Answer1</label>
-      <input 
-        type='checkbox'
-        id='correctAnswer'
-        name='correctAnswer'
-        value={formData.answer}
-        onChange={handleChange}
-      />
-      <label htmlFor='answer'>Answer2</label>
-      <input 
-        type='checkbox'
-        id='correctAnswer'
-        name='correctAnswer'
-        value={formData.answer}
-        onChange={handleChange}
-      />
-      <label htmlFor='answer'>Answer3</label>
-      <input 
-        type='checkbox'
-        id='correctAnswer'
-        name='correctAnswer'
-        value={formData.answer}
-        onChange={handleChange}
-      />
-      <label htmlFor='answer'>Answer4</label>
-      <input 
-        type='checkbox'
-        id='correctAnswer'
-        name='correctAnswer'
-        value={formData.answer}
-        onChange={handleChange}
-      />
+    <form className='flex flex-col items-center gap-8' onSubmit={handleSubmit}>
+      <div className='flex'>
+        <label htmlFor='prompt'>Prompt</label>
+        <input
+          className=''
+          type='text'
+          id='prompt'
+          name='prompt'
+          value={formData.prompt}
+          onChange={handleChange}
+        />
+      </div>
+      <div className='flex'>
+        <label htmlFor='answer'>Answer1</label>
+        <input 
+          type='text'
+          id='correctAnswer'
+          name='correctAnswer'
+          value={formData.answer1}
+          onChange={handleChange}
+        />
+      </div> 
+      <div className='flex'>
+        <label htmlFor='answer'>Answer2</label>
+        <input 
+          type='text'
+          id='correctAnswer'
+          name='correctAnswer'
+          value={formData.answer2}
+          onChange={handleChange}
+        />
+      </div>
+      <div className='flex'>
+        <label htmlFor='answer'>Answer3</label>
+        <input 
+          type='text'
+          id='correctAnswer'
+          name='correctAnswer'
+          value={formData.answer3}
+          onChange={handleChange}
+        />
+      </div>
+      <div className='flex'>
+        <label htmlFor='answer'>Answer4</label>
+        <input 
+          type='text'
+          id='correctAnswer'
+          name='correctAnswer'
+          value={formData.answer4}
+          onChange={handleChange}
+        />
+      </div>
+      <button type='submit' className=''>Submit</button>
     </form>
   )
 }
