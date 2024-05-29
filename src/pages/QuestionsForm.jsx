@@ -7,7 +7,7 @@ function QuestionsForm({ onAddQuestion }) {
         answer2: "",
         answer3: "",
         answer4: "",
-        correctAnswer: "",
+        correctIndex: 0,
     });
 
     const handleChange = (e) => {
@@ -41,7 +41,13 @@ function QuestionsForm({ onAddQuestion }) {
             },
             body: JSON.stringify(questionData),
         })
-        .then((r) => r.json())
+        .then(r => {
+            if(r.ok) {
+              return r.json();
+            } else {
+              throw new Error('Failed to create a new question')
+            }
+        })
         .then((newQuestion) => onAddQuestion(newQuestion))
         // e.target.reset()
     };
